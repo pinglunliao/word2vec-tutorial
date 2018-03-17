@@ -19,8 +19,10 @@ def main():
 			q_list = query.split()
 
 			if len(q_list) == 1:
-				print("相似詞前 100 排序")
-				res = model.most_similar(q_list[0],topn = 100)
+				print("相似詞前 10 排序")
+				print(q_list[0])
+				model.init_sims(replace=True)
+				res = model.most_similar(q_list[0],topn = 10)
 				for item in res:
 					print(item[0]+","+str(item[1]))
 
